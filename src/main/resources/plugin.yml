@@ -4,3 +4,6 @@ main: atama.atama.AtamaMain
 api-version: 1.19
 authors: [ Elite_Watermelon ]
 description: A plugin that allows the gaining of other players heads either with a command or by killing them
+commands:
+  skull:
+    description: Lets an operator on the server grab the skull of another player

@@ -9,5 +9,6 @@ public final class AtamaMain extends JavaPlugin {
         // Plugin startup logic
         System.out.println("Atama loaded...");
         getServer().getPluginManager().registerEvents(new PlayerDeathsListener(), this);
+        getCommand("skull").setExecutor(new getSkullCommand());
     }
 }
