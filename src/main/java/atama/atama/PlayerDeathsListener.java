@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 public class PlayerDeathsListener implements Listener {
+
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e){
         if(e.getEntity().getKiller() instanceof Player){
@@ -21,6 +22,7 @@ public class PlayerDeathsListener implements Listener {
             is.setItemMeta(meta);
 
             killer_player.getInventory().addItem(is);
+            e.setDeathMessage(killed_player.getDisplayName()+" was decapitated by "+killer_player.getDisplayName());
         }
     }
 }
