@@ -1,0 +1,6 @@
+name: Atama
+version: '${project.version}'
+main: atama.atama.AtamaMain
+api-version: 1.19
+authors: [ Elite_Watermelon ]
+description: A plugin that allows the gaining of other players heads either with a command or by killing them
