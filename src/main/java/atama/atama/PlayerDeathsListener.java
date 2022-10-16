@@ -8,6 +8,8 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import java.util.Collections;
+
 public class PlayerDeathsListener implements Listener {
 
     @EventHandler
@@ -19,6 +21,8 @@ public class PlayerDeathsListener implements Listener {
             ItemStack is = new ItemStack(Material.PLAYER_HEAD);
             SkullMeta meta = (SkullMeta) is.getItemMeta();
             meta.setOwningPlayer(killed_player);
+            meta.setLore(Collections.singletonList("The head of your enemy\nItem generated with Atama"));
+            meta.setDisplayName(killed_player.getDisplayName()+"'s head");
             is.setItemMeta(meta);
 
             killer_player.getInventory().addItem(is);
