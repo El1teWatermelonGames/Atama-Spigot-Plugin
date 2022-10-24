@@ -7,3 +7,5 @@ description: A plugin that allows the gaining of other players heads either with
 commands:
   skull:
     description: Lets an operator on the server grab the skull of another player
+  redeem_skull:
+    description: Lets the player redeem the skull they are holding in their hand

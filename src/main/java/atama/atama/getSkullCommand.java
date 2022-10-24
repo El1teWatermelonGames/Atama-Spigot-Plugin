@@ -22,7 +22,7 @@ public class getSkullCommand implements CommandExecutor {
             ItemStack is = new ItemStack(Material.PLAYER_HEAD);
             SkullMeta meta = (SkullMeta) is.getItemMeta();
             meta.setOwningPlayer(TargetUser);
-            meta.setLore(Collections.singletonList("The head of your enemy\nItem generated with Atama"));
+            meta.setLore(Collections.singletonList("The head of your enemy | Item generated with Atama"));
             meta.setDisplayName(TargetUser.getDisplayName()+"'s head");
             is.setItemMeta(meta);
         } else CommandUser.sendMessage("You do not have permissions to use that command or you entered too many arguments");
