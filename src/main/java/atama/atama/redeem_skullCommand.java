@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -19,11 +20,10 @@ public class redeem_skullCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
         ItemStack heldItem = player.getInventory().getItem(player.getInventory().getHeldItemSlot());
+        Item item = (Item) player.getInventory().getItem(player.getInventory().getHeldItemSlot());
 
         if (heldItem.getType() == Material.PLAYER_HEAD){
-            player.sendMessage("You have claimed a skull!");
-
-            int RN = RandomNum(0, 10);
+            int RN = RandomNum(0, 3);
             ItemStack itemGive = null;
             if(RN == 0){
                 itemGive = new ItemStack(Material.NETHERITE_INGOT, RandomNum(1, 3));
@@ -61,7 +61,8 @@ public class redeem_skullCommand implements CommandExecutor {
             }
 
             player.getInventory().addItem(itemGive);
-            Bukkit.broadcastMessage(player.getDisplayName()+"redeemed a skull and was given: " + itemGive.getAmount() + " " + itemGive.getType().name()+"s");
+            Bukkit.broadcastMessage(player.getDisplayName()+" redeemed "+ item.getName() +"'s skull and was given: " + itemGive.getAmount() + " " + itemGive.getType().name()+"s");
+            player.getInventory().removeItem(heldItem);
         } else {
             player.sendMessage("You are not holding a skull!");
         }
